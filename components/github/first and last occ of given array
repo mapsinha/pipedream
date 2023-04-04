@@ -1,0 +1,60 @@
+#include<iostream>
+using namespace std;
+
+int firstocc(int arr[] , int n , int key)
+{
+    int ans= -1 ,s=0;
+    int e = n-1;
+    int mid = (s+e)/2;
+    while(s<=e){
+
+        if(key == arr[mid]){
+            ans = mid;
+            e = mid -1;
+            }
+
+        else if(arr[mid]>key){
+            e = mid - 1;
+        }
+        else if(arr[mid]<key)
+            s = mid +1;
+
+
+        mid = (s+e)/2;
+        }
+        return ans;
+
+}
+
+int lastocc(int arr[] , int n , int key)
+{
+    int ans= -1 ,s=0;
+    int e = n-1;
+    int mid = (s+e)/2;
+    while(s<=e){
+
+        if(key == arr[mid]){
+            ans = mid;
+            s = mid +1;
+            }
+
+        else if(arr[mid]>key){
+            e = mid -1;
+        }
+        else if(arr[mid]<key)
+            s = mid +1;
+
+
+        mid = (s+e)/2;
+        }
+        return ans;
+
+}
+int main()
+{
+    int even[]={1,1,1,2,2,2,2,2,2,2,5};
+    cout<<"first occ of 1 in index of"<< firstocc(even,11,2) <<endl;
+    cout<<"last occ of 1 in index of"<< lastocc(even,11,2) <<endl;
+
+return 0;
+}
